@@ -1,0 +1,8 @@
+<?php
+define ( 'FVN_THEME_TEMPLATE_ASSETS_DIR' , FVN_THEME_TEMPLATE_DIR.'/assets' );
+define ( 'FVN_THEME_TEMPLATE_SYSTEM_DIR' , FVN_THEME_TEMPLATE_DIR.'/system' );
+
+
+
+define ( 'FVN_THEME_VERSION' , '1.0.0' );
+
