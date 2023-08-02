@@ -8,7 +8,7 @@ function fvn_theme_widgets_init() {
 		'id'             => "primary-widget-area",
 		'description'    => __( 'Thêm widget vào phía bên tay phải của website', 'fvn' ),
 		'class'          => '',
-		'before_widget'  => '<div id="%1$s" class="sidebar-widget %2$s">',
+		'before_widget'  => '<div id="%1$s" class="sidebar-widget clr %2$s">',
 		'after_widget'   => "</div>\n",
 		'before_title'   => '<span class="widget-title">',
 		'after_title'    => "</span>\n",

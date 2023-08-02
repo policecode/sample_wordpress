@@ -47,10 +47,12 @@ function fvn_theme_register_style() {
 
     wp_register_style('fvn_themes_site' ,FVN_THEME_URL.'/assets/css/site.css', array(), FVN_THEME_VERSION);
     wp_enqueue_style('fvn_themes_site');
-
     wp_register_style('fvn_themes_ie8' ,FVN_THEME_URL.'/assets/css/ie8.css', array(), FVN_THEME_VERSION);
     $wp_styles->add_data('fvn_themes_ie8', 'conditional', 'IE 8');
     wp_enqueue_style('fvn_themes_ie8');
+
+    wp_register_style('fvn_themes_custommize' ,FVN_THEME_URL.'/assets/css/custommize.css', array(), FVN_THEME_VERSION);
+    wp_enqueue_style('fvn_themes_custommize');
 }
 
 // Nạp những tập tin JS
