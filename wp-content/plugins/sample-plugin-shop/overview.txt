@@ -1,0 +1,7 @@
+- /configs : Chứa các file cấu hình mặc định của ứng dụng
+- /controller: Chứa các file thực thi chương trình gồm xử lý BE và FE
+- /helpers: Chứa các tập tin hỗ trợ trong ứng dụng, những chức năng nhỏ và phụ
+- /includes: Chứa các tập tin xử lý chung của toàn ứng dụng
+- /model: Chứa các tập tin thao tác với DB
+- /templates: Chứa các tập tin xử lý về view của ứng dụng
+- /validates: Chứa các tập tin xử lý validate
