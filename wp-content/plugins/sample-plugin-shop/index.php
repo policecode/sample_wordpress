@@ -10,6 +10,18 @@ Author URI:
 
 require_once 'define.php';
 require_once FVN_SP_INCLUDES_PATH . DS . 'controller.php';
+/**
+ * Thao tác khi bật tắt plugin
+ */
+register_activation_hook(__FILE__, 'fvn_mp_active');
+register_deactivation_hook(__FILE__, 'fvn_mp_deactive');
+function fvn_mp_active() {
+    require_once 'active.php';
+}
+function fvn_mp_deactive() {
+    require_once 'deactive.php';
+ }
+
 
 /**
  * Khởi tạo class toàn cục tìm và nạp file
@@ -18,6 +30,7 @@ global $fvnController;
 $fvnController = new FvnController();
 
 if (is_admin()) {
+    require_once FVN_SP_INCLUDES_PATH.DS.'html.php';
     require_once 'backend.php';
     new Fvn_Sp_Backend();
 } else {

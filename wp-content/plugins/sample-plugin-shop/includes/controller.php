@@ -7,10 +7,18 @@ if (!class_exists('fvnController')) {
         public function __construct($options = array()) {
             
         }
+
+        /**
+         * Kiểm tra phương thức request
+         */
         public function isPost() {
             $flag = ($_SERVER['REQUEST_METHOD'] == 'POST')?true:false;
             return $flag;
         }
+
+        /**
+         * Lấy dữ liệu request
+         */
         public function getParams($name = null) {
             if ($name == null) {
                 return $_REQUEST;
@@ -22,9 +30,9 @@ if (!class_exists('fvnController')) {
         public function getConfig($filename = 'AdminShopping', $dir = '') {
             $obj = new stdClass();
             if (empty($dir)) {
-                $file = FVN_CONFIG_PATH. $filename . '.php';
+                $file = FVN_SP_CONFIG_PATH. $filename . '.php';
             } else {
-                $file = FVN_CONFIG_PATH. $dir. DS . $filename . '.php';
+                $file = FVN_SP_CONFIG_PATH. $dir. DS . $filename . '.php';
             }
                 if (file_exists($file)) {
                    require_once $file;
@@ -103,9 +111,9 @@ if (!class_exists('fvnController')) {
         public function getView($filename = '', $dir = '') {
             $file = '';
             if (empty($dir)) {
-                $file = FVN_SP_TEMPLATE_PATH. DS . $filename;
+                $file = FVN_SP_TEMPLATE_PATH. DS . $filename. '.php';
             } else {
-                $file = FVN_SP_TEMPLATE_PATH. $dir. DS . $filename;
+                $file = FVN_SP_TEMPLATE_PATH. $dir. DS . $filename. '.php';
             }
             if (file_exists($file)) {
                 require_once $file;
@@ -128,7 +136,7 @@ if (!class_exists('fvnController')) {
     
             return $obj;
         }
-    
+
         public function getCssUrl($filename = '', $dir = '') {
             $url = FVN_SP_CSS_URL.$dir.'/'.$filename.'.css';
             $headers = @get_headers($url);

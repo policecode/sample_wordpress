@@ -4,7 +4,7 @@
 define('FVN_SP_PLUGIN_URL', plugin_dir_url(__FILE__));
 define('FVN_SP_PUBLIC_URL', FVN_SP_PLUGIN_URL. 'public');
 define('FVN_SP_CSS_URL', FVN_SP_PUBLIC_URL. '/css');
-define('FVN_SP_IMAGE_URL', FVN_SP_PUBLIC_URL. '/image');
+define('FVN_SP_IMAGE_URL', FVN_SP_PUBLIC_URL. '/images');
 define('FVN_SP_JS_URL', FVN_SP_PUBLIC_URL. '/js');
 
 // ================== PATH ==================
@@ -21,3 +21,5 @@ define('FVN_SP_VALIDATE_PATH', FVN_SP_PLUGIN_PATH.'validates');
 
 // ================== ORTHER ==================
 define('FVN_SP_PREFIX', 'Fvn_Sp_');
+define('FVN_SP_PLUGIN_VERSION', '1.0.0');
+
