@@ -10,7 +10,7 @@ $lbl = 'Manafacturer List';
 
 $page = $fvnController->getParams('page');
 
-$linkAdd = admin_url('admin.php?page='.$page.'action=add');
+$linkAdd = admin_url('admin.php?page='.$page.'&action=add');
 $lblAdd = 'Manafacturer Add';
 
 if ($fvnController->getParams('msg') == 1) {

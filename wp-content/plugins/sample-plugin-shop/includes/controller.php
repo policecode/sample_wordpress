@@ -4,6 +4,8 @@
  */
 if (!class_exists('fvnController')) {
     class FvnController {
+        public $_errors = array(); //Xử lý việc truyền dữ liêu từ controller sang view
+        public $_data = array(); //Xử lý việc truyền dữ liệu từ controller sang view
         public function __construct($options = array()) {
             
         }

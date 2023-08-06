@@ -158,7 +158,7 @@ class Fvn_Sp_Manafacturer_Model extends WP_List_Table {
         $whereArr = array();
 
         if ($fvnController->getParams('filter_status') != '') {
-            $status = ($fvnController->getParams('orderby') == 'active')?1:0;
+            $status = ($fvnController->getParams('filter_status') == 'active')?1:0;
             $whereArr[] = " (m.status = $status) ";
         }
         if ($fvnController->getParams('s') != '') {
@@ -177,7 +177,6 @@ class Fvn_Sp_Manafacturer_Model extends WP_List_Table {
         $offset = ($paged - 1) * $this->_per_page;
 
         $sql .= ' LIMIT '.$this->_per_page.' OFFSET '.$offset;
-
         $data = $wpdb->get_results($sql, ARRAY_A);
 
         return $data;
@@ -203,5 +202,100 @@ class Fvn_Sp_Manafacturer_Model extends WP_List_Table {
             'name' => array('name', true),
             'id' => array('id', true)
         );
+    }
+
+    /**
+     * Xóa dữ liệu
+     */
+    public function deleteItem($arrData=array(), $options=array()) {
+        global $wpdb;
+        $table = $wpdb->prefix.'fvn_sp_manufacturer';
+
+        if (!is_array($arrData['id'])) {
+            $where = array('id' => absint($arrData['id']));
+            $wpdb->delete($table, $where);
+        } else {
+            // Chuyển value trong mảng thành số nguyên
+            $arrData['id'] = array_map('absint', $arrData['id']);
+            $ids = join(',', $arrData['id']);
+            $sql = "DELETE FROM $table  WHERE id IN ($ids)";
+            $wpdb->query($sql);
+        }
+    }
+    /**
+     * Thay đổi status
+     */
+    public function changeStatus($arrData=array(), $options=array()) {
+        global $wpdb;
+        $status = ($arrData['action'] == 'active') ? 1:0;
+        $table = $wpdb->prefix.'fvn_sp_manufacturer';
+
+        if (!is_array($arrData['id'])) {
+            $data = array('status' => absint($status));
+            $where = array('id' => absint($arrData['id']));
+
+            $wpdb->update($table, $data, $where);
+        } else {
+            // Chuyển value trong mảng thành số nguyên
+            $arrData['id'] = array_map('absint', $arrData['id']);
+            $ids = join(',', $arrData['id']);
+            $sql = "UPDATE $table SET status = $status WHERE id IN ($ids)";
+            $wpdb->query($sql);
+        }
+    }
+    /**
+     * Lấy 1 record theo id từ DB
+     */
+    public function getItem($arrData=array(), $options=array()) {
+        global $wpdb;
+        $id = absint($arrData['id']);
+        $table = $wpdb->prefix.'fvn_sp_manufacturer';
+        $sql = "SELECT * FROM $table WHERE id = $id";
+        $row = $wpdb->get_row($sql, ARRAY_A);
+        return $row;
+    }
+    /**
+     * Hàm lưu dữ liệu, update dữu liệu
+     */
+    public function save_items($arrData=array(), $options=array()) {
+        global $fvnController, $wpdb;
+
+        // Kiểm tra hành động được gọi tới
+        $action = $arrData['action'];
+
+        /**
+         * Tạo slug
+         */
+        $slug = '';
+        if (empty($arrData['slug'])) {
+            $slug = sanitize_title($arrData['name']);
+        } else {
+            $slug = sanitize_title($arrData['slug']);
+        }
+        $slugHelper = $fvnController->getHelper('CreateSlug');
+        // Kiểm tra và lấy slug không bị trùng
+        if ($action == 'add') {
+            $optionSlug = array('table' => 'fvn_sp_manufacturer', 'field' => 'slug');
+        } else if($action == 'edit') {
+            $optionSlug = array('table' => 'fvn_sp_manufacturer', 
+                                'field' => 'slug',
+                                'exception' => array('field' => 'id', 'value' => absint($arrData['id'])));
+        }
+        $slug = $slugHelper->getSlug($slug, $optionSlug);
+
+        $table = $wpdb->prefix.'fvn_sp_manufacturer';
+        $data = array(
+            'name' => $arrData['name'],
+            'slug' => $slug,
+            'status' => $arrData['status']
+        );
+        $format = array('%s', '%s', '%d');
+        if ($action == 'add') {
+            $wpdb->insert($table, $data, $format);
+        } else if ($action == 'edit') {
+            $where = array('id' => absint($arrData['id']));
+            $wpdb->update($table, $data, $where);
+        }
+      
     }
 }

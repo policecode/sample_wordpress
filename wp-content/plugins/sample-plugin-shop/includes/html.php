@@ -5,12 +5,28 @@ if (!class_exists('FvnSetupHtml')) {
 		public function __construct($options = null){
 	
 		}
+		/**
+		 * Xử lý việc bật popup chọn một hình ảnh và lấy đường dẫn
+		 */
 		public function btn_media_script($button_id,$input_id){
 			$script = "<script>
-							jQuery(document).ready(function($){
-								$('#{$button_id}').fvnBtnMedia('{$input_id}');
-							});
-						</script>";
+						jQuery(document).ready(function($){
+						// Xử lý việc tránh trùng lặp khi thêm url với form editor
+						var backupSendToEditor = window.send_to_editor;
+						// click button_id để hiện popup
+						$('#{$button_id}').click(() => {
+							tb_show('', 'media-upload.php?type=image&TB_iframe=true');
+							// Xử lý việc lấy link và đưa vào $input_id
+							window.send_to_editor = function(html) {
+								let imageUrl = $('img', html).attr('src');
+								$('#{$input_id}').val(imageUrl);
+								tb_remove();
+								window.send_to_editor = backupSendToEditor;
+							}
+							return false;
+						})
+					});
+				</script>";
 			return $script;
 		}
 		//Phần tử p
@@ -23,7 +39,7 @@ if (!class_exists('FvnSetupHtml')) {
 		public function label($val = '', $attr = array(), $options = null){
 			if (empty($attr['class'])) $attr['class'] = '';
 			if (empty($attr['for'])) $attr['for'] = '';
-			return '<label for="'.$attr["for"].'" class="'.$attr["class"].'">'.translate($val).'</label><br>';
+			return '<label for="'.$attr["for"].'" class="'.$attr["class"].'">'.translate($val).'</label>';
 		}	
 		
 		//Phần tử TEXTBOX
@@ -82,6 +98,3 @@ if (!class_exists('FvnSetupHtml')) {
 		
 	}
 }
-
-
-?>

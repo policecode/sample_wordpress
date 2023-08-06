@@ -1,0 +1,58 @@
+@CHARSET "ISO-8859-1";
+
+#zendvn-sp-zsproduct-show-images {
+	border: solid 1px #e5e5e5;
+	margin: 5px 0px;
+	padding: 10px;
+	background-color: #f1f6ff;
+}
+
+#zendvn-sp-zsproduct-show-images .clr {
+	clear: both;
+}
+
+#zendvn-sp-zsproduct-show-images .content-img {
+	float: left;
+	text-align: center;
+	border: solid 1px #e5e5e5;
+	padding: 3px;
+	font-size: 11px;
+	margin: 10px 10px 0px 0px;
+	background-color: #ffffff;
+}
+#zendvn-sp-zsproduct-show-images .div-ordering{
+	border-top: solid 1px #e5e5e5;
+	margin-top: 4px;
+	padding: 4px 0px 3px 0px;
+}
+#zendvn-sp-zsproduct-show-images .ordering{
+	width: 40px;
+	height: 23px;
+	text-align: center;
+	font-size: 11px;
+}
+
+#zendvn-sp-zsproduct-show-images .remove-img{
+	cursor: pointer;
+}
+
+/*====================================*/
+/* CSS CHO PHAN COLUMN 				*/
+/*====================================*/
+
+.column-view, .column-id{
+	width: 6%;
+}
+
+.column-category{
+	width: 15%;
+}
+
+
+
+
+
+
+
+
+
