@@ -5,7 +5,7 @@ $controller = $fvnController->_data['controller'];
 
 // Tạo phần tử chứa price
 $inputId = $controller->create_id('price');
-$inputName = $controller->create_id('price');
+$inputName = $controller->create_key('price');
 $inputValue = get_post_meta($post->ID, $controller->create_key('price'), true);
 $inputValue = filter_var($inputValue, FILTER_VALIDATE_FLOAT);
 
@@ -16,7 +16,7 @@ echo $htmlObj->pTag($html);
 
 // Tạo phần tử chứa sale off
 $inputId = $controller->create_id('sale-off');
-$inputName = $controller->create_id('sale-off');
+$inputName = $controller->create_key('sale-off');
 $inputValue = get_post_meta($post->ID, $controller->create_key('sale-off'), true);
 $inputValue = filter_var($inputValue, FILTER_VALIDATE_FLOAT);
 
@@ -34,7 +34,7 @@ foreach ($results as $key => $val) {
 }
 
 $inputId = $controller->create_id('manufacturer');
-$inputName = $controller->create_id('manufacturer');
+$inputName = $controller->create_key('manufacturer');
 $inputValue = get_post_meta($post->ID, $controller->create_key('manufacturer'), true);
 $inputValue = filter_var($inputValue, FILTER_VALIDATE_FLOAT);
 
@@ -45,9 +45,9 @@ echo $htmlObj->pTag($html);
 
 // Tạo phần tử chứa Gift
 $inputId = $controller->create_id('gift');
-$inputName = $controller->create_id('gift');
+$inputName = $controller->create_key('gift');
 $inputValue = get_post_meta($post->ID, $controller->create_key('gift'), true);
-$inputValue = filter_var($inputValue, FILTER_VALIDATE_FLOAT);
+// $inputValue = filter_var($inputValue, FILTER_VALIDATE_FLOAT);
 
 $arr = array('id' => $inputId, 'rows' => 6, 'style' => 'width: 100%;');
 $html = $htmlObj->label(__('Gift for customer')). '</br>'

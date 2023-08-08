@@ -1,10 +1,10 @@
 /**
  * Xử lý bật cửa sổ popup chọn được nhiều hình ảnh
  */
-jQuery(function () {
     $(document).ready(function () {
         // #fvn-sp-products-button: id của thẻ btn ta click
         $('#fvn-sp-products-button').click(open_media_window);
+        fvn_sp_remove_image('#zendvn-sp-zsproduct-show-images');
     });
 
     /**
@@ -50,8 +50,8 @@ jQuery(function () {
                                     <a class="remove-img">Remove</a>
                                 </div>
                                 <div class="div-ordering">
-                                    <input value="1" class="ordering" name="fvn-sp-products-img-ordering[]" type="text"> 
-                                    <input name="fvn-sp-products-img-url[]" value="${imgUrl}" type="hidden">
+                                    <input value="1" class="ordering" name="_fvn_sp_products_img-ordering[]" type="text"> 
+                                    <input name="_fvn_sp_products_img-url[]" value="${imgUrl}" type="hidden">
                                 </div>
                             </div>`;
                 $(newImg).insertBefore(img_content + ' .clr');
@@ -73,4 +73,3 @@ jQuery(function () {
             })
         })
     }
-});

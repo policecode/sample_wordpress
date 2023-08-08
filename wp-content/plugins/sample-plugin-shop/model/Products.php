@@ -33,7 +33,7 @@ class Fvn_Sp_Products_Model {
             'has_archive' => true, // Lưu trữ theo ngày-tháng-năm
             'rewrite' => true, //custom lại đường đãn frontend
             'can_export' => true, //Cho phép sử dụng tool để export
-            '_edit_link' => 'post.php?post=%d', //Chỉnh sửa đường dẫn phần eidt
+            '_edit_link' => 'post.php?post_type=fvn-product&post=%d', //Chỉnh sửa đường dẫn phần eidt
         );
         register_post_type('fvn-product', $args);
     }
