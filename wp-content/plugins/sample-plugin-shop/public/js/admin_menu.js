@@ -8,7 +8,6 @@ jQuery(document).ready(function(e) {
 
     let taxonomy = getURLParameter('taxonomy');
     let postType = getURLParameter('post_type');
-    console.log(taxonomy);
     if (postType == 'fvn-product') {
         if (taxonomy == 'fvn-category') {
             $('#toplevel_page_fvn-sp-manager a[href="edit-tags.php?taxonomy=fvn-category&post_type=fvn-product"]').addClass('current');
@@ -20,7 +19,6 @@ jQuery(document).ready(function(e) {
         }
     }
 })
-
 
 function getURLParameter(sParams) {
     let sPageUrl = window.location.search.substring(1);

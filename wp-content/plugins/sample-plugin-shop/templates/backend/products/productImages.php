@@ -22,10 +22,10 @@ echo $btnMedia;
 
 <?php 
 // Tạo phần tử chưa rotate 360
-$inputId = $controller->create_id('picture');
-$inputName = $controller->create_id('picture');
+$inputId = $controller->create_id('routate360');
+$inputName = $controller->create_id('routate360');
 $inputValue = get_post_meta($post->ID, $controller->create_key('routate360'), true);
-$arr = array('id' => $inputId, 'rows' => 6, 'cols' => 200);
+$arr = array('id' => $inputId, 'rows' => 6, 'style' => 'width: 100%;');
 $html = $htmlObj->label(__('Routate 360')) . '</br>'
     . $htmlObj->textarea($inputName, $inputValue, $arr);
 echo $htmlObj->pTag($html);

@@ -82,9 +82,8 @@ class Fvn_Sp_AdminCategories_Controller {
         if ($fvnController->isPost()) {
             $option_name = $this->_prefix_id.$term_id;
             update_option($option_name, $fvnController->getParams($this->_prefix_name));
-            $url = 'edit-tags.php?taxonomy=fvn-category&post_type=fvn-product&msg=1';
-            wp_redirect($url);
-            die;
+            // $url = 'edit-tags.php?taxonomy=fvn-category&post_type=fvn-product&msg=1';
+            // wp_redirect($url);
         }
     }
 
@@ -97,3 +96,4 @@ class Fvn_Sp_AdminCategories_Controller {
 
 
 }
+?>

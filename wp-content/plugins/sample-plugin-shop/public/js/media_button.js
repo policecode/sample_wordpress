@@ -21,9 +21,15 @@ jQuery(function () {
            var self = this;
             // có thay đổi mới chạy hàm này, lấy ra các obj hình ảnh
            this.window.on('select', function () {
+                /**
+                 * Hàm thực thi mỗi khi popup upload ảnh mới
+                 */
+                // Trả về obj thông tin của các phần tử ảnh đã chọn
                 var imgs = self.window.state().get('selection').toJSON();
-                // console.log(imgs);
+                console.log(imgs);
+                // #zendvn-sp-zsproduct-show-images: thẻ bọc khu vực chứa các hình ảnh
                 fvn_sp_insert_image('#zendvn-sp-zsproduct-show-images', imgs);
+                fvn_sp_remove_image('#zendvn-sp-zsproduct-show-images');
            })
         }
         this.window.open();
@@ -44,12 +50,27 @@ jQuery(function () {
                                     <a class="remove-img">Remove</a>
                                 </div>
                                 <div class="div-ordering">
-                                    <input value="" class="ordering" name="zendvn-sp-zsproduct-img-ordering[]" type="text"> 
-                                    <input name="zendvn-sp-zsproduct-img-url[]" value="<?php echo $arrPicture[$i]; ?>" type="hidden">
+                                    <input value="1" class="ordering" name="fvn-sp-products-img-ordering[]" type="text"> 
+                                    <input name="fvn-sp-products-img-url[]" value="${imgUrl}" type="hidden">
                                 </div>
                             </div>`;
                 $(newImg).insertBefore(img_content + ' .clr');
             })
         }
+    }
+
+    /**
+     * Hàm xử lý phần xóa ảnh khỏi danh sách
+     */
+    function fvn_sp_remove_image(img_content) {
+        // console.log(document.querySelectorAll(img_content+ ' a.remove-img'));
+        let selector = img_content + ' a.remove-img'
+        $(selector).on('click', (e) => {
+            let element;
+            element = $(e.target).parents(".content-img");
+            $(element).fadeOut('slow', () => {
+                $(e.target).remove();
+            })
+        })
     }
 });

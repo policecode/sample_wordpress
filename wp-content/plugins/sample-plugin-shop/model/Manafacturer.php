@@ -245,14 +245,27 @@ class Fvn_Sp_Manafacturer_Model extends WP_List_Table {
     }
     /**
      * Lấy 1 record theo id từ DB
+     * array('status' => 1), array('type' => 'all')
      */
     public function getItem($arrData=array(), $options=array()) {
         global $wpdb;
-        $id = absint($arrData['id']);
         $table = $wpdb->prefix.'fvn_sp_manufacturer';
-        $sql = "SELECT * FROM $table WHERE id = $id";
-        $row = $wpdb->get_row($sql, ARRAY_A);
-        return $row;
+
+        if (isset($options['type']) && $options['type'] === 'all') {
+            $status = isset($arrData['status'])?absint($arrData['status']):'all';
+            if ($status == 'all') {
+                $sql = "SELECT * FROM $table";
+            } else {
+                $sql = "SELECT * FROM $table WHERE status = $status ORDER BY name ASC";
+            }
+            $result = $wpdb->get_results($sql, ARRAY_A);
+
+        } else {
+            $id = absint($arrData['id']);
+            $sql = "SELECT * FROM $table WHERE id = $id";
+            $result = $wpdb->get_row($sql, ARRAY_A);
+        }
+        return $result;
     }
     /**
      * Hàm lưu dữ liệu, update dữu liệu

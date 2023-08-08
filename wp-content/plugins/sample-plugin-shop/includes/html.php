@@ -9,6 +9,8 @@ if (!class_exists('FvnSetupHtml')) {
 		 * Xử lý việc bật popup chọn một hình ảnh và lấy đường dẫn
 		 */
 		public function btn_media_script($button_id,$input_id){
+			
+			// $script = '<script src="'.get_bloginfo('url').'/wp-includes/js/thickbox/thickbox.js"></script>';
 			$script = "<script>
 						jQuery(document).ready(function($){
 						// Xử lý việc tránh trùng lặp khi thêm url với form editor
