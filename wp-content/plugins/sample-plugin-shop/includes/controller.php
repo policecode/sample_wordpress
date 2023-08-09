@@ -29,10 +29,10 @@ if (!class_exists('fvnController')) {
                 return $val;
             }
         }
-        public function getConfig($filename = 'AdminShopping', $dir = '') {
+        public function getConfig($filename = '', $dir = '') {
             $obj = new stdClass();
             if (empty($dir)) {
-                $file = FVN_SP_CONFIG_PATH. $filename . '.php';
+                $file = FVN_SP_CONFIG_PATH. DS . $filename . '.php';
             } else {
                 $file = FVN_SP_CONFIG_PATH. $dir. DS . $filename . '.php';
             }

@@ -11,6 +11,7 @@ class Fvn_Sp_Backend {
              * Lấy giá trị slug page
              */
             $this->_page = $_GET['page'];
+            add_action('admin_enqueue_scripts', array($this, 'add_css_file'));
         }
         add_action('admin_menu', array($this, 'menus'));
     }
@@ -41,11 +42,10 @@ class Fvn_Sp_Backend {
           
         }
         if ($page == 'fvn-sp-manager-categories') {
-            $obj = $fvnController->getController('AdminCategories', DS.'backend');
-
+            // $obj = $fvnController->getController('AdminCategories', DS.'backend');
         }
         if ($page == 'fvn-sp-manager-products') {
-            $obj = $fvnController->getController('AdminProducts', DS.'backend');
+            // $obj = $fvnController->getController('AdminProducts', DS.'backend');
         }
         if ($page == 'fvn-sp-manager-manafacturer') {
             $obj = $fvnController->getController('AdminManafacturer', DS.'backend');
@@ -55,6 +55,15 @@ class Fvn_Sp_Backend {
         }
         if ($page == 'fvn-sp-manager-settings') {
             $obj = $fvnController->getController('AdminSettings', DS.'backend');
+        }
+    }
+
+
+    public function add_css_file() {
+        global $fvnController;
+        if ($fvnController->getParams('page') === 'fvn-sp-manager-settings') {
+            wp_register_style('fvn_sp_product_setting_be', $fvnController->getCssUrl('setting_be'), array(), FVN_SP_PLUGIN_VERSION);
+            wp_enqueue_style('fvn_sp_product_setting_be');
         }
     }
 }

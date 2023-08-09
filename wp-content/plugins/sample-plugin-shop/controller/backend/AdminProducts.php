@@ -99,7 +99,7 @@ class Fvn_Sp_AdminProducts_Controller {
         }
 
         if ($query->get('fvn-category') > 0) {
-            // Xử lý phần select theo category
+            // Xử lý phần select (tìm kiếm) theo category
             $tax_query = array(
                 'relation' => 'OR',
                 array(
@@ -126,7 +126,7 @@ class Fvn_Sp_AdminProducts_Controller {
         }
         if ($column == 'view') {
             $view = get_post_meta($post_id, $this->create_key('view'), true);
-           
+            // update_post_meta($post_id, $this->create_key('view'), $post_id - 220);
             echo $view;
         }
         if ($column == 'category') {
