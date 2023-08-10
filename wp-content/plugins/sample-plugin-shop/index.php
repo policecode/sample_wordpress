@@ -10,6 +10,7 @@ Author URI:
 
 require_once 'define.php';
 require_once FVN_SP_INCLUDES_PATH . DS . 'controller.php';
+add_filter('use_block_editor_for_post', '__return_false');
 /**
  * Thao tác khi bật tắt plugin
  */
@@ -41,6 +42,7 @@ if (is_admin()) {
      * Tạo category riêng trong phần admin, bên ngoài FE sẽ gọi hàm tương tự
      */
     $fvnController->getController('AdminCategories', DS . 'backend'); //edit-tags.php?taxonomy=fvn-category&post_type=fvn-product
+    $fvnController->getController('AdminProducts', DS . 'backend'); //edit.php?post_type=fvn-product
 } else {
     require_once 'frontend.php';
     new Fvn_Sp_Frontend();
@@ -50,5 +52,4 @@ if (is_admin()) {
  * Gọi các phương thức sử dụng ở cả FE và BE
  */
 // Custom post_type sử dụng cả ở frontend và backend nên ta sẽ khởi tạo class ở ngoài
-$fvnController->getController('AdminProducts', DS . 'backend'); //edit.php?post_type=fvn-product
 

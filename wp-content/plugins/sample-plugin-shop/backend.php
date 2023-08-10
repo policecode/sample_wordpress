@@ -6,6 +6,12 @@ class Fvn_Sp_Backend {
     private $_page = '';
 
     public function __construct() {
+        global $fvnController;
+        /**
+         * Tạo page mới, hiển thị ở phần giao diện của admin
+         */
+        $fvnController->getHelper('CreatePage');
+
         if (isset($_GET['page'])) {
             /**
              * Lấy giá trị slug page
@@ -14,6 +20,7 @@ class Fvn_Sp_Backend {
             add_action('admin_enqueue_scripts', array($this, 'add_css_file'));
         }
         add_action('admin_menu', array($this, 'menus'));
+
     }
 
     /**
@@ -39,7 +46,6 @@ class Fvn_Sp_Backend {
         if ($page == 'fvn-sp-manager') {
             // D:\Program Files\xampp\htdocs\wordpress\learn_v1\wp-content\plugins\sample-plugin-shop\controller\backend\AdminShopping.php
             $obj = $fvnController->getController('AdminShopping', DS.'backend');
-          
         }
         if ($page == 'fvn-sp-manager-categories') {
             // $obj = $fvnController->getController('AdminCategories', DS.'backend');

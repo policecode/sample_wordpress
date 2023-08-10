@@ -117,6 +117,8 @@ if (!class_exists('fvnController')) {
             } else {
                 $file = FVN_SP_TEMPLATE_PATH. $dir. DS . $filename. '.php';
             }
+            // echo $file.'<br>';
+            // var_dump(file_exists($file));
             if (file_exists($file)) {
                 require_once $file;
             }
