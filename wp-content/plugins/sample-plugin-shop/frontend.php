@@ -1,5 +1,7 @@
 <?php 
 class Fvn_Sp_Frontend {
+    // DÙng để đánh dấu khi load css
+    private $_cssFlag = false;
     public function __construct() {
         global $fvnController, $wp_query;
         // Khởi tạo các hàm post_type ngoài frontend
@@ -17,6 +19,19 @@ class Fvn_Sp_Frontend {
         /**
          * Luồng frontend: frontend.php -> templates/template_include.php (file template) -> controller/frontend/*.php -> templates/folder/display.php (giao diện)
          */
+
+         /**
+          * Load css
+          */
+          add_action('wp_enqueue_scripts', array($this, 'add_css_file'));
+    }
+
+    public function add_css_file() {
+        if ($this->_cssFlag) {
+            global $fvnController;
+            wp_register_style('fvn_sp_product_fe', $fvnController->getCssUrl('product_fe'), array(), FVN_SP_PLUGIN_VERSION);
+            wp_enqueue_style('fvn_sp_product_fe');
+        }
     }
     public function load_template($template) {
         global $post, $wp_query;
@@ -32,6 +47,7 @@ class Fvn_Sp_Frontend {
             // Tạo đường dẫn tới file cần xử lý page
             $page_path = FVN_SP_TEMPLATE_PATH. DS . 'frontend' . DS . $page_template;
             if (file_exists($page_path)) {
+                $this->_cssFlag = true;
                 return $page_path;
             }
         }
@@ -42,6 +58,7 @@ class Fvn_Sp_Frontend {
         if (get_query_var('fvn-category') != '') {
             $page_path = FVN_SP_TEMPLATE_PATH. DS . 'frontend' . DS . 'fvn-category.php';
             if (file_exists($page_path)) {
+                $this->_cssFlag = true;
                 return $page_path;
             }
         }
@@ -49,6 +66,7 @@ class Fvn_Sp_Frontend {
         if (get_query_var('fvn-product') != '') {
             $page_path = FVN_SP_TEMPLATE_PATH. DS . 'frontend' . DS . 'fvn-product.php';
             if (file_exists($page_path)) {
+                $this->_cssFlag = true;
                 return $page_path;
             }
         }

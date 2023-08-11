@@ -1,0 +1,169 @@
+@CHARSET "ISO-8859-1";
+
+#zendvn_sp_products {
+	list-style: none;
+	font-size: 14px;
+}
+
+#zendvn_sp_products>li {
+	width: 33.33%;
+	float: left;
+}
+
+#zendvn_sp_products .product {
+	border: 1px solid #ccc;
+	padding: 3px;
+	text-align: center;
+	margin: 0px 20px 20px 0px;
+	padding: 10px 0px;
+}
+
+#zendvn_sp_products .product>img {
+	
+}
+
+#zendvn_sp_products .product .name {
+	clear: both;
+	font-weight: bold;
+	text-align: left;
+	margin: 13px 3px 3px 5px;
+}
+
+#zendvn_sp_products .product .price {
+	margin: 5px;
+	font-size: 14px;
+	margin: 5px 5px;
+}
+
+.clr {
+	clear: both;
+}
+
+#zendvn_sp_products .product .plft {
+	float: left;
+}
+
+#zendvn_sp_products .product .prt {
+	float: right;
+	color: red;
+}
+
+#zendvn_sp_products .product .gift {
+	text-align: left;
+	font-style: italic;
+	margin: 8px 5px 0px 5px;
+	color: green;
+}
+
+#zendvn_sp_products a {
+	color: #0066cc;
+	text-decoration: none;
+}
+
+/*---------------HIEN THI CHI TIET SAN PHAM ------------------------*/
+#zendvn_sp_product_detail {
+	border-bottom: solid 1px #ccc;
+	padding-bottom: 20px;
+	margin-bottom: 20px;
+}
+
+#zendvn_sp_product_detail .product_imgs {
+	width: 55%;
+	float: left;
+}
+
+#zendvn_sp_product_detail .product_text {
+	width: 45%;
+	float: right;
+}
+
+#zendvn_sp_product_detail .product_text ul {
+	list-style: none;
+	background-color: #f7f7f7;
+	margin: 0px;
+}
+
+#zendvn_sp_product_detail .product_text li {
+	padding: 2px 5px 2px 10px;
+	border-bottom: solid 1px #fff;
+}
+
+#zendvn_sp_product_detail .product_text .gift div {
+	padding: 5px 0px;
+	margin: 3px 0px; border-bottom : solid 1px #fff;
+	background: white;
+	border-bottom: solid 1px #fff;
+}
+
+#zendvn_sp_product_detail .product_text .sale-off {
+	font-weight: bold;
+	color: red;
+}
+
+#zendvn_sp_product_detail .product_text h1 {
+	font-size: 24px;
+	margin: 5px 0px 5px 0px;
+}
+
+#zendvn_sp_product_detail .product-thumbs {
+	margin: 10px 0px;
+	list-style: none;
+}
+
+#zendvn_sp_product_detail .product-thumbs li {
+	float: left;
+	margin: 2px 2px 0px 0px;
+}
+
+#zendvn_sp_product_detail .product-thumbs img {
+	cursor:pointer;
+}
+
+
+#zendvn_sp_product_detail .order {
+	background-color: #f5a623;
+	padding: 5px;
+	font-size: 15px;
+	width: 150px;
+	text-align: center;
+	display: inline-block;
+	text-decoration: none;
+	border: 1px solid #f19600;
+	font-weight: bold;
+	color: white;
+	margin: 3px 0px;
+}
+
+#zendvn_sp_product_detail .r360 {
+	background-color: #68b113;
+	padding: 5px;
+	font-size: 15px;
+	width: 150px;
+	text-align: center;
+	display: inline-block;
+	text-decoration: none;
+	border: 1px solid #62b600;
+	font-weight: bold;
+	color: white;
+	margin: 3px 0px;
+}
+
+#zendvn_sp_product_detail li.detail-cart{
+	padding: 5px;
+	text-align: center;
+  	border: 1px solid #ccc;
+  	background-color: #bde0f1;
+}
+
+#zendvn_sp_product_detail span.number_product{
+	font-weight: bold;
+}
+
+#zendvn_sp_product_detail .alert-cart{
+	background-color: white;
+	color: red;
+	display: none;
+}
+
+
+

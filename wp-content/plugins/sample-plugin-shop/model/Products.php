@@ -5,6 +5,20 @@ class Fvn_Sp_Products_Model {
         
     }
 
+    public function getAllProduct() {
+        global $fvn_sp_settings;
+        $paged = max(1, get_query_var('paged'));
+        $offset = ($paged - 1)*$fvn_sp_settings['product_number'];
+        $args = array(
+            'post_type' => 'fvn-product',
+            'posts_per_page' => $fvn_sp_settings['product_number'],
+            'offset' => $offset,
+            'paged' => $paged
+        );
+        $product_query = new WP_Query($args);
+        return $product_query;
+    }
+
     public function create()
     {
         $labels = array(

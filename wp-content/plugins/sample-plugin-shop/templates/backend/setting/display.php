@@ -104,7 +104,7 @@ $productNumber = $htmlObj->textbox($inputName, $inputValue, $arr)
     //Tao phan tu chua $emailAddress
     $inputID 		= $option_name . '_email_address';
     $inputName 		= $option_name . '[email_address]';
-    $inputValue 	= $data['email address'];
+    $inputValue 	= $data['email_address'];
     $arr 			= array('size' =>'25','id' => $inputID);
     $emailAddress	= $htmlObj->textbox($inputName,$inputValue,$arr);
     

@@ -44,6 +44,15 @@ if (is_admin()) {
     $fvnController->getController('AdminCategories', DS . 'backend'); //edit-tags.php?taxonomy=fvn-category&post_type=fvn-product
     $fvnController->getController('AdminProducts', DS . 'backend'); //edit.php?post_type=fvn-product
 } else {
+    /**
+     * Tạo phần setting toàn cục
+     */
+    global $fvn_sp_settings;
+    $fvn_sp_settings = get_option('fvn_sp_setting', array());
+    if (count($fvn_sp_settings) == 0 ) {
+        $settingConfig = $fvnController->getConfig('Setting');
+        $fvn_sp_settings = $settingConfig->get();
+    }
     require_once 'frontend.php';
     new Fvn_Sp_Frontend();
 }
