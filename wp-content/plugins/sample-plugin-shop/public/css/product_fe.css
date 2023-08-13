@@ -3,11 +3,12 @@
 #zendvn_sp_products {
 	list-style: none;
 	font-size: 14px;
+	display: flex;
+    flex-wrap: wrap;
 }
 
 #zendvn_sp_products>li {
 	width: 33.33%;
-	float: left;
 }
 
 #zendvn_sp_products .product {

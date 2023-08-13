@@ -1,4 +1,9 @@
 <?php get_header() ?>
+<style>
+     #content {
+        margin-right: 20px;
+     }
+</style>
 <?php 
     global $post, $fvnController;
 

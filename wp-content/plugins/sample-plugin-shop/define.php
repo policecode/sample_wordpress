@@ -23,5 +23,6 @@ define('FVN_SP_VALIDATE_PATH', FVN_SP_PLUGIN_PATH.'validates');
 // ================== ORTHER ==================
 define('FVN_SP_PREFIX', 'Fvn_Sp_');
 define('FVN_SP_PLUGIN_VERSION', '1.0.0');
+define('FVN_SP_PLUGIN_NANME', 'FVN_SAMPLE_PLUGIN');
 
 // resize

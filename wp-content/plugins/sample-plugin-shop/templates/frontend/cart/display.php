@@ -1,2 +1,2 @@
 <?php
-echo __FILE__;
+global $fvnController;

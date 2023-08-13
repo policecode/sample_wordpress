@@ -1,5 +1,5 @@
 <?php 
-global $fvnController, $fvn_sp_settings, $wp_query;
+global $fvnController, $fvn_sp_settings, $wp_query, $wpQuery;
 
 ?>
 
@@ -15,6 +15,7 @@ global $fvnController, $fvn_sp_settings, $wp_query;
         $modelProduct = $fvnController->getModel('Products');
         $imageHelper = $fvnController->getHelper('ImageThumbnail');
         $product_query = $modelProduct->getAllProduct();
+        $wpQuery = $product_query;
     ?>
     <ul id="zendvn_sp_products">
         <?php 
