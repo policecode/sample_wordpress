@@ -22,7 +22,8 @@ class Fvn_Sp_CreatePage_Helper {
 
         $this->_templatePage = array(
             'page-fvn-shopping.php' => 'Show all products',
-            'page-fvn-cart.php' => 'Fvn Shopping Cart'
+            'page-fvn-cart.php' => 'Fvn Shopping Cart',
+            'page-login.php' => 'Đăng nhập'
         );
     }
     public function register_template($attrs) {
